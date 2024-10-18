@@ -1,28 +1,23 @@
 # P4.-Network-e-Compose_Marcos-Alonso-Cabral
+## 1. Crear unha rede en docker
 
+## 2. Crear dous contenedores unidos a esa rede
 
+## 3. Comprobar que os contenedores están na rede
 
-Docker network
+## 4. Comprobar que os contenedores poden verse entre eles
 
-Crear unha rede en docker
+## 5. Listar os contenedores conectados á rede
 
-Crear dous contenedores unidos a esa rede
+## 6. Listar as propiedades da rede
 
-Comprobar que os contenedores están na rede
+## 7. Crea outra rede
 
-Comprobar que os contenedores poden verse entre eles
+## 8. Lanza dous contenedores novos conectados a esa nova rede
 
-Listar os contenedores conectados á rede
+## 9. Comproba as posibles conexións entre os 4 contenedores
 
-Listar as propiedades da rede
-
-Crea outra rede
-
-Lanza dous contenedores novos conectados a esa nova rede
-
-Comproba as posibles conexións entre os 4 contenedores
-
-Docker compose:
+## 10. Docker compose:
 
 Segue os pasos da guía de iniciación de docker-compose, e explica coas túas palabras os pasos que segues e qué fan
 
