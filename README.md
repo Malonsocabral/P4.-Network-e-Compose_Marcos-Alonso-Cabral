@@ -53,8 +53,20 @@ Logo procedemos a executar o comando `ping contenedor1`, e observamos que tanto 
 # Docker compose:
 
 ## 1. Segue os pasos da guía de iniciación de docker-compose, e explica coas túas palabras os pasos que segues e qué fan
+>[!NOTE]
+>Primero de todo, el proceso que segui esta en el siguiente link : https://docs.docker.com/compose/gettingstarted/  
+O primeiro que hay que facer é crear una carpeta de proyecto, en mi caso la llame composetest ya que era la que aparecia en el tutorial. Luego creamos con `touch app.py` este fichero en el que dentro pondremos el siguiente codigo que realmente es lo que nos va a hacer que luego cuando entremos a la pagina web del contenerod nos aparezca que entramos varias veces e todo o demais.  
+Logo de configurar ese fichero volvemos facer un `touch requirements.txt` para crear este fichero de requerimientos en el que debemos poner el codigo que nos manda en el propio tutorial.  
+O seguinte que faremos é crear a dockerfile que simplemente podemos crear ubn fichero sin extension e modificalo poñendolle o codigo que manda no tutorial, que resumidamente instala y contruye esta imaxes con os requerimentos e o codigo que ye puximos anteriorente nos outros ficheiros asi como o porto.  
+Logo creamos un arquivo .yaml co comando `touch compose.yaml` e dentro poñemos o que nos indica a paxina que basicamente é o tipo de imaxe e os portos que vai utilizar.  
+E finalmente para lanzar o docker compose facemos o comando `docker compose up` na carpeta do proyecto. E se copiamos todo tal cal da web, apareceranos no navegador na ubicacion de `http://localhost:8000/`  
+E se accedemos e vamos refrescando a paxina podemos ver que o numero de accesos cambia.
+
 
 ## 2. Agora que sabes algo máis de docker-compose, crea un arquivo (ou varios arquivos) de configuración que ó ser lanzados cun docker-compose up, resulten nunha rede docker á que estean conectados 3 contenedores, explica os parámetros do .yaml usado
 
-## 3. Busca e proba 4 parámetros e configuracións diferentes que podes incluir no arquivo compose, explica qué fan. (por exemplo diferentes cousas que facer coa opción RUN)
+Para crear un arquivo 
 
+
+
+## 3. Busca e proba 4 parámetros e configuracións diferentes que podes incluir no arquivo compose, explica qué fan. (por exemplo diferentes cousas que facer coa opción RUN)
