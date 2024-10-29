@@ -69,53 +69,53 @@ E se accedemos e vamos refrescando a paxina podemos ver que o numero de accesos 
 Para crear un arquivo .yaml que inicie os tres contenedores a vez debemos hacer un `touch compose.yaml`en el directorio en el que queramos que este el archivo y pegar por ejemplo el siguiente codigo que ten estos 3 servizos:  
 
 ``
-version: '3.8'
-  
-services:  
+  version: '3.8'
+    
+  services:  
 
-  app:  
+    app:  
 
-    image: myapp:latest  
-    networks:  
+      image: myapp:latest  
+      networks:  
 
-      - mynetwork  
+        - mynetwork  
 
-    depends_on:  
+      depends_on:  
 
-      - db  
+        - db  
 
-      - cache  
-        
+        - cache  
+          
 
-  db:  
+    db:  
 
-    image: postgres:latest  
+      image: postgres:latest  
 
-    environment:  
+      environment:  
 
-      POSTGRES_USER: user  
+        POSTGRES_USER: user  
 
-      POSTGRES_PASSWORD: password  
+        POSTGRES_PASSWORD: password  
 
-    networks:  
+      networks:  
 
-      - mynetwork  
-        
-  cache:  
+        - mynetwork  
+          
+    cache:  
 
-    image: redis:latest  
+      image: redis:latest  
 
-    networks:  
+      networks:  
 
-      - mynetwork  
-        
+        - mynetwork  
+          
 
 
-networks:  
+  networks:  
 
-  mynetwork:  
+    mynetwork:  
 
-    driver: bridge 
+      driver: bridge 
 
 ``
 
