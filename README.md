@@ -68,8 +68,8 @@ E se accedemos e vamos refrescando a paxina podemos ver que o numero de accesos 
 
 Para crear un arquivo .yaml que inicie os tres contenedores a vez debemos hacer un `touch compose.yaml`en el directorio en el que queramos que este el archivo y pegar por ejemplo el siguiente codigo que ten estos 3 servizos:  
 
-``
-      version: '3.8'
+
+        version: '3.8'
       
       services:  
 
@@ -117,7 +117,7 @@ Para crear un arquivo .yaml que inicie os tres contenedores a vez debemos hacer 
 
         driver: bridge 
 
-``
+
 
 
 ### Explicación de los parámetros:
