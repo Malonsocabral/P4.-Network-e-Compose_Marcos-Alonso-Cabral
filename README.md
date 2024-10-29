@@ -70,32 +70,53 @@ Para crear un arquivo .yaml que inicie os tres contenedores a vez debemos hacer 
 
 ``
 version: '3.8'
+  
+services:  
 
-services:
-  app:
-    image: myapp:latest
-    networks:
-      - mynetwork
-    depends_on:
-      - db
-      - cache
+  app:  
 
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-    networks:
-      - mynetwork
+    image: myapp:latest  
+    networks:  
 
-  cache:
-    image: redis:latest
-    networks:
-      - mynetwork
+      - mynetwork  
 
-networks:
-  mynetwork:
-    driver: bridge
+    depends_on:  
+
+      - db  
+
+      - cache  
+        
+
+  db:  
+
+    image: postgres:latest  
+
+    environment:  
+
+      POSTGRES_USER: user  
+
+      POSTGRES_PASSWORD: password  
+
+    networks:  
+
+      - mynetwork  
+        
+  cache:  
+
+    image: redis:latest  
+
+    networks:  
+
+      - mynetwork  
+        
+
+
+networks:  
+
+  mynetwork:  
+
+    driver: bridge 
+
 ``
 
 
