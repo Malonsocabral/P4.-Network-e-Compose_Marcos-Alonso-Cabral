@@ -74,47 +74,32 @@ Para crear un arquivo .yaml que inicie os tres contenedores a vez debemos hacer 
       services:  
 
       app:  
-
         image: myapp:latest  
         networks:  
 
           - mynetwork  
 
         depends_on:  
-
           - db  
-
           - cache  
             
 
       db:  
-
         image: postgres:latest  
-
         environment:  
-
           POSTGRES_USER: user  
-
           POSTGRES_PASSWORD: password  
 
         networks:  
-
           - mynetwork  
             
       cache:  
-
         image: redis:latest  
-
         networks:  
-
-          - mynetwork  
-            
-
+          - mynetwork     
 
       networks:  
-
       mynetwork:  
-
         driver: bridge 
 
 
