@@ -55,6 +55,7 @@ Logo procedemos a executar o comando `ping contenedor1`, e observamos que tanto 
 ## 1. Segue os pasos da guía de iniciación de docker-compose, e explica coas túas palabras os pasos que segues e qué fan
 >[!NOTE]
 >Primero de todo, el proceso que segui esta en el siguiente link : https://docs.docker.com/compose/gettingstarted/  
+
 O primeiro que hay que facer é crear una carpeta de proyecto, en mi caso la llame composetest ya que era la que aparecia en el tutorial. Luego creamos con `touch app.py` este fichero en el que dentro pondremos el siguiente codigo que realmente es lo que nos va a hacer que luego cuando entremos a la pagina web del contenerod nos aparezca que entramos varias veces e todo o demais.  
 Logo de configurar ese fichero volvemos facer un `touch requirements.txt` para crear este fichero de requerimientos en el que debemos poner el codigo que nos manda en el propio tutorial.  
 O seguinte que faremos é crear a dockerfile que simplemente podemos crear ubn fichero sin extension e modificalo poñendolle o codigo que manda no tutorial, que resumidamente instala y contruye esta imaxes con os requerimentos e o codigo que ye puximos anteriorente nos outros ficheiros asi como o porto.  
@@ -65,8 +66,68 @@ E se accedemos e vamos refrescando a paxina podemos ver que o numero de accesos 
 
 ## 2. Agora que sabes algo máis de docker-compose, crea un arquivo (ou varios arquivos) de configuración que ó ser lanzados cun docker-compose up, resulten nunha rede docker á que estean conectados 3 contenedores, explica os parámetros do .yaml usado
 
-Para crear un arquivo 
+Para crear un arquivo .yaml que inicie os tres contenedores a vez debemos hacer un `touch compose.yaml`en el directorio en el que queramos que este el archivo y pegar por ejemplo el siguiente codigo que ten estos 3 servizos:  
 
+``
+version: '3.8'
+
+services:
+  app:
+    image: myapp:latest
+    networks:
+      - mynetwork
+    depends_on:
+      - db
+      - cache
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    networks:
+      - mynetwork
+
+  cache:
+    image: redis:latest
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
+``
+
+
+### Explicación de los parámetros:
+
+1. version: Especifica la versión de la sintaxis de Docker Compose que se está utilizando. En este caso, se está utilizando la versión
+3.8
+
+
+2. services: Define los contenedores que se van a ejecutar. Cada contenedor se define como un servicio.
+
+- app: Este es el servicio principal que representa tu aplicación.
+- image: Especifica la imagen de Docker que se utilizará para crear el contenedor. En este caso, se usa myapp:latest
+
+- networks: Indica a qué red se conectará el contenedor. Aquí se conecta a mynetwork
+
+- depends_on: Define las dependencias entre servicios. Esto asegura que el contenedor db y cache se inicien antes que app
+
+- db: Este servicio representa una base de datos PostgreSQL.
+- image: Especifica la imagen de Docker para PostgreSQL.
+- environment: Aquí se definen las variables de entorno necesarias para configurar la base de datos, como el usuario y la contraseña.
+- networks: También se conecta a mynetwork
+
+
+- cache: Este servicio representa un contenedor de Redis.
+- image: Especifica la imagen de Docker para Redis.
+- networks: Se conecta a mynetwork
+
+
+3. networks: Define las redes que se utilizarán en los servicios.
+- mynetwork: Es el nombre de la red que se crea.
+- driver: Especifica el tipo de red. En
 
 
 ## 3. Busca e proba 4 parámetros e configuracións diferentes que podes incluir no arquivo compose, explica qué fan. (por exemplo diferentes cousas que facer coa opción RUN)
