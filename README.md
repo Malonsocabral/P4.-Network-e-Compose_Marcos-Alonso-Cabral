@@ -107,33 +107,42 @@ Para crear un arquivo .yaml que inicie os tres contenedores a vez debemos hacer 
 
 ### Explicación de los parámetros:
 
-1. version: Especifica la versión de la sintaxis de Docker Compose que se está utilizando. En este caso, se está utilizando la versión
+1. versión: especifica a versión da sintaxe de Docker Compose que se está a utilizar. Neste caso, estase a utilizar a versión
 3.8
 
 
-2. services: Define los contenedores que se van a ejecutar. Cada contenedor se define como un servicio.
+2. services: Define os contedores a executar. Cada contedor defínese como un servizo.
 
-- app: Este es el servicio principal que representa tu aplicación.
-- image: Especifica la imagen de Docker que se utilizará para crear el contenedor. En este caso, se usa myapp:latest
+- app: este é o servizo principal que representa a túa aplicación.
+- image: especifica a imaxe de Docker que se utilizará para crear o contedor. Neste caso, úsase myapp:latest
 
-- networks: Indica a qué red se conectará el contenedor. Aquí se conecta a mynetwork
+- network: indica a que rede se conectará o contedor. Aquí te conectas á mynetwork
 
-- depends_on: Define las dependencias entre servicios. Esto asegura que el contenedor db y cache se inicien antes que app
+- depends_on: define as dependencias entre servizos. Isto garante que a base de datos e o contenedor de caché se inicien antes da aplicación
 
-- db: Este servicio representa una base de datos PostgreSQL.
-- image: Especifica la imagen de Docker para PostgreSQL.
-- environment: Aquí se definen las variables de entorno necesarias para configurar la base de datos, como el usuario y la contraseña.
-- networks: También se conecta a mynetwork
-
-
-- cache: Este servicio representa un contenedor de Redis.
-- image: Especifica la imagen de Docker para Redis.
-- networks: Se conecta a mynetwork
+db: este servizo representa unha base de datos PostgreSQL.
+- image: especifica a imaxe de Docker para PostgreSQL.
+- enviroment: Aquí defínense as variables de ambiente necesarias para configurar a base de datos, como o nome de usuario e o contrasinal.
+- network: tamén se conecta á mynetwork
 
 
-3. networks: Define las redes que se utilizarán en los servicios.
-- mynetwork: Es el nombre de la red que se crea.
-- driver: Especifica el tipo de red. En
+- caché: este servizo representa un contedor Redis.
+- image: especifica a imaxe de Docker para Redis.
+- network: conéctase á miña rede
+
+
+3. network: Define as redes que se utilizarán nos servizos.
+- mynetwork: é o nome da rede que se crea.
+- driver: especifica o tipo de rede. En
+
+
 
 
 ## 3. Busca e proba 4 parámetros e configuracións diferentes que podes incluir no arquivo compose, explica qué fan. (por exemplo diferentes cousas que facer coa opción RUN)
+Parametros: 
+
+build: Docker Compose creará a imaxe da aplicación a partir do ficheiro Dockerfile especificado no camiño indicado.  
+
+volume: este parámetro utilízase para montar volumes no contedor, permitindo que os datos se conserven ou que se compartan ficheiros entre o host e o contenedor.
+
+ports: este parámetro utilízase para asignar portos de contedores a portos de host. Isto permite que as aplicacións do contedor sexan accesibles desde o exterior.
